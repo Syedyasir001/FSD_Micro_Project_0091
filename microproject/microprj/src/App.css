@@ -1,2 +1,24 @@
+/* === Two-column layout === */
+
 .App {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+}
+
+/* Left column — card preview placeholder (~40%) */
+.app-left {
+  flex: 0 0 40%;
+  background: #21092f;       /* dark placeholder; will be styled in card preview task */
+  min-height: 100vh;
+}
+
+/* Right column — form (~60%) */
+.app-right {
+  flex: 1;
+  background: #f2f2f7;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
 }

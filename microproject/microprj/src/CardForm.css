@@ -1,0 +1,128 @@
+/* === Card Form Styles === */
+
+.card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Label */
+.form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #8e8e9a;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+/* Input base */
+.form-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #dcdce5;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #21092f;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.form-input::placeholder {
+  color: #c0bfce;
+}
+
+.form-input:focus {
+  border-color: #6048a0;
+}
+
+/* Error state */
+.form-input--error {
+  border-color: #d73c3c;
+}
+
+.form-input--error:focus {
+  border-color: #d73c3c;
+}
+
+/* Error message */
+.error-text {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+  color: #d73c3c;
+  letter-spacing: 0.02em;
+  font-style: italic;
+}
+
+/* Small input (MM / YY) */
+.form-input--small {
+  width: 70px;
+  padding: 11px 10px;
+  text-align: center;
+}
+
+/* Form group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Row: Exp + CVC side by side */
+.form-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.form-group--exp {
+  flex: 1;
+}
+
+.form-group--cvc {
+  flex: 1;
+}
+
+/* Exp month/year pair */
+.exp-inputs {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+/* Wrapper for each MM/YY input + its error */
+.exp-field {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Confirm button */
+.confirm-btn {
+  width: 100%;
+  padding: 15px;
+  background: #21092f;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.1s;
+  font-family: inherit;
+  margin-top: 4px;
+}
+
+.confirm-btn:hover {
+  background: #3b1468;
+}
+
+.confirm-btn:active {
+  transform: scale(0.98);
+}
