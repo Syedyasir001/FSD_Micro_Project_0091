@@ -45,7 +45,7 @@ function validate(values) {
 
 /* ── component ── */
 // formValues and setFormValues are lifted up to App so CardPreview can share state
-function CardForm({ formValues, setFormValues }) {
+function CardForm({ formValues, setFormValues, onSuccess }) {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -67,7 +67,8 @@ function CardForm({ formValues, setFormValues }) {
     const errs = validate(formValues);
     setErrors(errs);
     if (Object.keys(errs).length === 0) {
-      console.log('Valid submission:', formValues);
+      // All fields valid — notify parent to show success toast
+      onSuccess && onSuccess();
     }
   };
 

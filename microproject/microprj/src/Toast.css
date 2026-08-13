@@ -1,0 +1,57 @@
+/* ═══════════════════════════════════════
+   TOAST — fixed top-right, fade in/out
+═══════════════════════════════════════ */
+
+.toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  background: #1a0933;
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+
+  /* Hidden by default — no pointer events, fully transparent, shifted up */
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Visible state — toggled by adding .toast--visible */
+.toast--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Checkmark icon */
+.toast-icon {
+  display: flex;
+  align-items: center;
+  color: #7cdc8e;
+  flex-shrink: 0;
+}
+
+.toast-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.toast-message {
+  white-space: nowrap;
+}
