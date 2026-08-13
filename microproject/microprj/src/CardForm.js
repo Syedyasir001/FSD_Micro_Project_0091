@@ -3,9 +3,7 @@ import './CardForm.css';
 
 /* ── helpers ── */
 function formatCardNumber(raw) {
-  // Keep only digits, cap at 16
   const digits = raw.replace(/\D/g, '').slice(0, 16);
-  // Insert a space every 4 digits
   return digits.replace(/(.{4})/g, '$1 ').trim();
 }
 
@@ -46,31 +44,18 @@ function validate(values) {
 }
 
 /* ── component ── */
-function CardForm() {
-  const [formValues, setFormValues] = useState({
-    cardholderName: '',
-    cardNumber: '',
-    expMonth: '',
-    expYear: '',
-    cvc: '',
-  });
-
-  // errors only visible after first submit attempt
+// formValues and setFormValues are lifted up to App so CardPreview can share state
+function CardForm({ formValues, setFormValues }) {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     let { name, value } = e.target;
-
-    // Auto-format card number as user types
     if (name === 'cardNumber') {
       value = formatCardNumber(value);
     }
-
     const updated = { ...formValues, [name]: value };
     setFormValues(updated);
-
-    // Re-validate live only after first submit attempt
     if (submitted) {
       setErrors(validate(updated));
     }
@@ -81,9 +66,7 @@ function CardForm() {
     setSubmitted(true);
     const errs = validate(formValues);
     setErrors(errs);
-
     if (Object.keys(errs).length === 0) {
-      // All valid — hand off to parent / next step
       console.log('Valid submission:', formValues);
     }
   };

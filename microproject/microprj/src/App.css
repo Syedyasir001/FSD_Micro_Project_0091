@@ -6,11 +6,11 @@
   font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
 }
 
-/* Left column — card preview placeholder (~40%) */
+/* Left column — card preview (~40%) */
 .app-left {
   flex: 0 0 40%;
-  background: #21092f;       /* dark placeholder; will be styled in card preview task */
   min-height: 100vh;
+  /* Background handled by CardPreview's own panel styles */
 }
 
 /* Right column — form (~60%) */
